@@ -22,9 +22,9 @@ const PatientDetails = () => {
   const [socket, setSocket] = useState(null);
 
   const initialFormData = {
-    name: "", age: "", gender: "", phone: "", specialization: "", place: "", mgoodId: "",
+    name: "", age: "", gender: "", phone: "", specialization: "", place: "",
   };
-  const initialQrFormData = { phoneNumber: "", mgoodId: "", transactionId: "" };
+  const initialQrFormData = { phoneNumber: "", transactionId: "" };
 
   const [qrFormData, setQrFormData] = useState(initialQrFormData);
   const [formData, setFormData] = useState(initialFormData);
@@ -63,7 +63,6 @@ const PatientDetails = () => {
         toast.error(`Booking Error: ${message}`);
         setLoading(false); // Unlock form if booking failed on server
     });
-
 
     return () => {
       newSocket.disconnect();
@@ -106,14 +105,14 @@ const PatientDetails = () => {
     }
     setLoading(true);
 
-    if (!qrFormData.phoneNumber || !qrFormData.mgoodId || !qrFormData.transactionId) {
+    if (!qrFormData.phoneNumber || !qrFormData.transactionId) {
       toast.error("All QR payment fields are required!");
       setLoading(false);
       return;
     }
 
     const patientDataForSubmission = {
-      ...formData, // name, age, gender, phone, specialization, place, mgoodId
+      ...formData, // name, age, gender, phone, specialization, place
       age: parseInt(formData.age, 10),
       // phone is already a string from input, which is fine for roomId
     };
@@ -219,10 +218,6 @@ const PatientDetails = () => {
                 </select>
               </div>
               <div className="border-2 rounded-md focus-within:border-primary">
-                <label className="sr-only" htmlFor="mgoodId">Mgood ID (Patient)</label>
-                <input className="w-full rounded-lg border-gray-200 p-3 text-sm" id="mgoodId" placeholder="Patient's MgoodId (optional)" value={formData.mgoodId} onChange={handleChange} />
-              </div>
-              <div className="border-2 rounded-md focus-within:border-primary">
                 <label className="sr-only" htmlFor="place">Place</label>
                 <input className="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="City/Place" type="text" id="place" value={formData.place} onChange={handleChange} required />
               </div>
@@ -243,7 +238,6 @@ const PatientDetails = () => {
                 <img src="/mgood-qr.jpg" alt="QR Code for MGood Payment" className="w-40 h-40 mx-auto border rounded-md" />
                 <p className="text-center text-sm text-gray-600">Scan QR to pay. Then fill payment details below.</p>
                 <input type="tel" id="phoneNumber" placeholder="Phone used for Payment (10 digits)" pattern="[0-9]{10}" value={qrFormData.phoneNumber} onChange={handleQrChange} className="border bg-slate-100 rounded-md p-2.5 text-sm focus:ring-primary focus:border-primary" required />
-                <input type="text" id="mgoodId" placeholder="Your MgoodId (Clinic/User)" value={qrFormData.mgoodId} onChange={handleQrChange} className="border bg-slate-100 rounded-md p-2.5 text-sm focus:ring-primary focus:border-primary" required />
                 <input type="text" id="transactionId" placeholder="UPI Transaction ID / Reference ID" value={qrFormData.transactionId} onChange={handleQrChange} className="border bg-slate-100 rounded-md p-2.5 text-sm focus:ring-primary focus:border-primary" required />
                 <Button type="submit" className="bg-primary text-white text-lg py-2.5 rounded-lg hover:bg-primary/90 disabled:bg-gray-400" disabled={loading}>
                   {loading ? "Submitting..." : "Submit Payment Details"}
