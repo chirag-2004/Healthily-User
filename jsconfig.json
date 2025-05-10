@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
+
+// {
+//   "compilerOptions": {
+//     "jsx": "react-jsx", // Enables JSX for React 17+ with the modern JSX runtime
+//     "baseUrl": ".", // Allows the use of absolute paths
+//     "paths": {
+//       "@/*": ["./*"] // Sets up module aliasing
+//     },
+//     "module": "ESNext", // Specifies the module system
+//     "target": "ES6", // Sets the JavaScript language version
+//     "allowJs": true // Allows JavaScript files in the project
+//   },
+//   "exclude": ["node_modules", ".next", "dist"], // Excludes unnecessary folders
+//   "include": ["**/*"] // Includes all files in the project
+// }
