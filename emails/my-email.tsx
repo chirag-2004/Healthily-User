@@ -44,12 +44,12 @@ export const EmailTemplate = ({
   return (
     <Html>
       <Head />
-      <Preview>MGood Appointment Booked</Preview>
+      <Preview>Healtily Appointment Booked</Preview>
       <Body style={main}>
         <Container>
           {/* <Section style={logo}>
             <Img src={`${baseUrl}/asset5.png`} />
-            <div>MGood</div>
+            <div>Healtily</div>
           </Section> */}
 
           <Section style={content}>
