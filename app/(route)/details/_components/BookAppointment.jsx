@@ -75,7 +75,7 @@ const BookAppointment = ({ doctor }) => {
         if (res) {
           axios
             
-            .post("http://localhost:3001/api/sendEmail", data)
+            .post("https://healthily-user.vercel.app/api/sendEmail", data)
             .then((res) => {
               console.log(res);
             });
