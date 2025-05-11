@@ -1,10 +1,26 @@
-# Healthily-User
+# Healthily-User (Part of Project Healthily by Team MIDROUTE)
 
-Healthily-User is a Next.js web application designed to connect patients with healthcare professionals. It offers features like teleconsultation, appointment booking, doctor search, and prescription management, aiming to make healthcare services more accessible and efficient.
+Healthily-User is a Next.js web application designed to connect patients with healthcare professionals. It is the user-facing component of the **Healthily** project, developed by **Team MIDROUTE**. The project aims to make healthcare services more accessible and efficient by offering features like teleconsultation, appointment booking, doctor search, and prescription management.
 
-## Overview
+## Project Overview: Healthily by Team MIDROUTE
 
-This application serves as the user-facing frontend for the Healthily platform. Patients can search for doctors based on specialization, view doctor profiles, book teleconsultation slots or in-person appointments, and manage their prescriptions. The platform leverages real-time communication for teleconsultations and provides a seamless booking experience.
+The **Healthily** project consists of multiple components working together:
+
+*   **This Repository (Patient Frontend):** [https://github.com/DHRUVGANGAL/Healthily-User](https://github.com/DHRUVGANGAL/Healthily-User)
+    *   **Deployed Patient Frontend:** [https://healthily-user.vercel.app](https://healthily-user.vercel.app)
+*   **Doctor Dashboard Frontend:** [https://github.com/DHRUVGANGAL/Healthily-dashboard](https://github.com/DHRUVGANGAL/Healthily-dashboard)
+    *   **Deployed Doctor Dashboard:** [https://healthily-dashboard.onrender.com](https://healthily-dashboard.onrender.com)
+*   **Backend:** [https://github.com/DHRUVGANGAL/healthily-backend](https://github.com/DHRUVGANGAL/healthily-backend)
+    *   **Deployed Backend:** [https://healthily-backend-8s57.onrender.com](https://healthily-backend-8s57.onrender.com)
+
+**Supporting Materials:**
+*   **Documentation:** [https://drive.google.com/drive/folders/1LZsuSrA5w55e9CKWmdkgQ4a1BVCk4VJj?usp=drive_link](https://drive.google.com/drive/folders/1LZsuSrA5w55e9CKWmdkgQ4a1BVCk4VJj?usp=drive_link)
+*   **Demo Video:** [https://drive.google.com/drive/folders/1dyNGo_04Wa5TQCKDgw-a0MFSUKqMZUzC?usp=drive_link](https://drive.google.com/drive/folders/1dyNGo_04Wa5TQCKDgw-a0MFSUKqMZUzC?usp=drive_link)
+*   **Sample Generated Prescription:** [https://drive.google.com/drive/folders/1coGx7zimmeHeIKUJMlIpZtuhyJ0XZfdm?usp=drive_link](https://drive.google.com/drive/folders/1coGx7zimmeHeIKUJMlIpZtuhyJ0XZfdm?usp=drive_link)
+
+## Healthily-User Application Overview
+
+This application (Healthily-User) serves as the user-facing frontend for the Healthily platform. Patients can search for doctors based on specialization, view doctor profiles, book teleconsultation slots or in-person appointments, and manage their prescriptions. The platform leverages real-time communication for teleconsultations and provides a seamless booking experience.
 
 ## Key Features
 
