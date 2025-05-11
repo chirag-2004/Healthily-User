@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "MGood",
+  title: "Healtily",
   description: "Elevating Healthcare",
 };
 
