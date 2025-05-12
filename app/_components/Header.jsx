@@ -12,7 +12,7 @@ import axios from "axios";
 
 function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [healthilyId, setHealthilyId] = useState("");
+  // const [healthilyId, setHealthilyId] = useState("");
 
   const [user, setUser] = useState(null); 
 
@@ -23,10 +23,7 @@ function Header() {
       
     });
   };
-  const handleMockLogout = () => {
-    setUser(null);
-    setHealthilyId(""); 
-  };
+ 
 
 
 
@@ -53,24 +50,7 @@ function Header() {
     setShowMobileMenu(!showMobileMenu);
   };
 
-  useEffect(() => {
-   
-    if (user && user.email) {
-      axios
-        .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/getHealthilyId`, {
-          email: user.email,
-        })
-        .then((res) => {
-          setHealthilyId(res.data.healthilyId);
-        })
-        .catch((error) => {
-          setHealthilyId("Not Found");
-          console.error("Failed to fetch HealthilyId:", error.response?.data?.message || error.message);
-        });
-    } else {
-      setHealthilyId(""); 
-    }
-  }, [user]); 
+ 
 
   return (
     <nav className="p-3 flex justify-between bg-white items-center shadow-sm text-black sticky top-0 z-50">
@@ -96,9 +76,9 @@ function Header() {
       </ul>
 
       <div className="flex items-center gap-2">
-        {!user ? (
+      
           <>
-            {/* "Start Teleconsultation" button for non-logged-in users */}
+            
             <Link href="/book-tc">
               <button className="text-xs md:text-base flex items-center gap-2 border-2 border-gray-400 hover:bg-primary hover:text-white px-2 md:px-6 py-2 rounded-md font-display">
                 <span>Start Teleconsultation</span>
@@ -106,48 +86,8 @@ function Header() {
               </button>
             </Link>
           </>
-        ) : (
-          <Popover>
-            <PopoverTrigger asChild>
-              <button className="focus:outline-none">
-                <Image
-                  width={40}
-                  height={40}
-                  src={user.picture || "/profile.jpg"} // Use a default if picture is missing
-                  alt="profile-pic"
-                  className="rounded-full border-2 border-gray-300 hover:border-primary"
-                />
-              </button>
-            </PopoverTrigger>
-            <PopoverContent className="w-56 mr-4 mt-1"> {/* Adjusted width and margin */}
-              <div className="p-2">
-                <p className="font-semibold text-sm mb-1 truncate">{user.email}</p>
-                {healthilyId && <p className="text-xs text-gray-500 mb-2">HealthilyId: {healthilyId}</p>}
-                <hr className="my-2"/>
-                <ul className="flex flex-col font-display text-sm">
-                 
-                  <Link href="/profile">
-                    <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md">
-                      My Profile
-                    </li>
-                  </Link>
-                  <Link href="/my-appointments">
-                    <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md">
-                      My Appointments
-                    </li>
-                  </Link>
-                
-                  <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md text-red-600">
-                    
-                    <button onClick={handleMockLogout} className="w-full text-left">
-                        Log Out
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </PopoverContent>
-          </Popover>
-        )}
+    
+    
 
         <button className="p-2 md:hidden" onClick={handleMenuToggle}>
           <i className={`fa-solid ${showMobileMenu ? 'fa-xmark' : 'fa-bars'} text-gray-600 text-xl`}></i>
